@@ -25,22 +25,124 @@ function Divide(x, y) {
 function operate(operator, number, anotherNumber) {
     switch(operator) {
         case "+":
-            console.log(Add(number, anotherNumber));
-            break;
+            return Add(number, anotherNumber);
         case "-":
-            console.log(Subtract(number, anotherNumber));
-            break;
+            return Subtract(number, anotherNumber);
         case "x":
-            console.log(Multiply(number, anotherNumber));
-            break;
+            return Multiply(number, anotherNumber);
         case "/":
-            console.log(Divide(number, anotherNumber));
-            break;
+            return Divide(number, anotherNumber);
     }
 }
 
-let number = 6;
-let operator = "/";
-let anotherNumber = 6;
+function clear() {
+    location.reload();
+}
 
-operate(operator, number, anotherNumber);
+let number;
+let operator;
+let anotherNumber;
+let displayValue = "";
+
+let buttons = document.querySelectorAll("button");
+buttons.forEach(function(button){
+    button.addEventListener('click', function(e) {
+        if (e.target.id != "clear" && e.target.id != "=") {
+            displayValue += `${e.target.id}`;
+        }
+        document.querySelector(".screen").innerHTML = displayValue;
+        if (e.target.id == "clear") {
+            clear();
+        } else if (e.target.id >= 0 && e.target.id <= 9) {
+            switch (e.target.id) {
+                case '0':
+                    if(typeof number === "undefined"){
+                        number = 0;
+                    } else {
+                        anotherNumber = 0;
+                    }
+                    break;
+                case '1':
+                    if(typeof number === "undefined"){
+                        number = 1;
+                    } else {
+                        anotherNumber = 1;
+                    }
+                    break;
+                case '2':
+                    if(typeof number === "undefined"){
+                        number = 2;
+                    } else {
+                        anotherNumber = 2;
+                    }
+                    break;
+                case '3':
+                    if(typeof number === "undefined"){
+                        number = 3;
+                    } else {
+                        anotherNumber = 3;
+                    }
+                    break;
+                case '4':
+                    if(typeof number === "undefined"){
+                        number = 4;
+                    } else {
+                        anotherNumber = 4;
+                    }
+                    break;
+                case '5':
+                    if(typeof number === "undefined"){
+                        number = 5;
+                    } else {
+                        anotherNumber = 5;
+                    }
+                    break;
+                case '6':
+                    if(typeof number === "undefined"){
+                        number = 6;
+                    } else {
+                        anotherNumber = 6;
+                    }
+                    break;
+                case '7':
+                    if(typeof number === "undefined"){
+                        number = 7;
+                    } else {
+                        anotherNumber = 7;
+                    }
+                    break;
+                case '8':
+                    if(typeof number === "undefined"){
+                        number = 8;
+                    } else {
+                        anotherNumber = 8;
+                    }
+                    break;
+                case '9':
+                    if(typeof number === "undefined"){
+                        number = 9;
+                    } else {
+                        anotherNumber = 9;
+                    }
+                    break;
+            } 
+        } else if (e.target.id === "+" || e.target.id === "-" || e.target.id === "x" || e.target.id === "/") {
+            switch (e.target.id) {
+                case "+":
+                    operator = "+";
+                    break;
+                case "-":
+                    operator = "-";
+                    break;
+                case "x":
+                    operator = "x";
+                    break;
+                case "/":
+                    operator = "/";
+                    break;
+            }
+        } else if (e.target.id == "=") {
+            document.querySelector('.screen').innerHTML = `${operate(operator, number, anotherNumber)}`;
+        }
+    })
+});

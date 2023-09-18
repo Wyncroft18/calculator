@@ -23,6 +23,13 @@ html, body {
     background-color: white;
 }
 
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
 .buttons {
     width: 350px;
     height: 350px;

@@ -207,7 +207,7 @@ buttons.forEach(function(button){
             } else {
                 displayValue = "";
                 let answer = operate(operator, number, anotherNumber);
-                document.querySelector('.screen').innerHTML = `${answer}`;
+                document.querySelector('.screen').innerHTML = `${answer.toLocaleString('en-US')}`;
                 number = answer;
                 anotherNumber = undefined;
                 displayValue += answer;

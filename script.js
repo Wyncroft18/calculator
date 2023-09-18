@@ -202,12 +202,16 @@ buttons.forEach(function(button){
                     break;
             }
         } else if (e.target.id == "=") {
-            displayValue = "";
-            let answer = operate(operator, number, anotherNumber);
-            document.querySelector('.screen').innerHTML = `${answer}`;
-            number = answer;
-            anotherNumber = undefined;
-            displayValue += answer;
+            if (e.target.id == "=" && (typeof number === "undefined" || typeof operator === "undefined" || typeof anotherNumber === "undefined")) {
+                clear();
+            } else {
+                displayValue = "";
+                let answer = operate(operator, number, anotherNumber);
+                document.querySelector('.screen').innerHTML = `${answer}`;
+                number = answer;
+                anotherNumber = undefined;
+                displayValue += answer;
+            }
         }
     })
 });

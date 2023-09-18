@@ -58,71 +58,131 @@ buttons.forEach(function(button){
                 case '0':
                     if(typeof number === "undefined"){
                         number = 0;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 0;
                     } else {
-                        anotherNumber = 0;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 0;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 0;
+                        }
                     }
                     break;
                 case '1':
                     if(typeof number === "undefined"){
                         number = 1;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 1;
                     } else {
-                        anotherNumber = 1;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 1;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 1;
+                        }
                     }
                     break;
                 case '2':
                     if(typeof number === "undefined"){
                         number = 2;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 2;
                     } else {
-                        anotherNumber = 2;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 2;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 2;
+                        }
                     }
                     break;
                 case '3':
                     if(typeof number === "undefined"){
                         number = 3;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 3;
                     } else {
-                        anotherNumber = 3;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 3;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 3;
+                        }
                     }
                     break;
                 case '4':
                     if(typeof number === "undefined"){
                         number = 4;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 4;
                     } else {
-                        anotherNumber = 4;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 4;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 4;
+                        }
                     }
                     break;
                 case '5':
                     if(typeof number === "undefined"){
                         number = 5;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 5;
                     } else {
-                        anotherNumber = 5;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 5;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 5;
+                        }
                     }
                     break;
                 case '6':
                     if(typeof number === "undefined"){
                         number = 6;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 6;
                     } else {
-                        anotherNumber = 6;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 6;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 6;
+                        }
                     }
                     break;
                 case '7':
                     if(typeof number === "undefined"){
                         number = 7;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 7;
                     } else {
-                        anotherNumber = 7;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 7;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 7;
+                        }
                     }
                     break;
                 case '8':
                     if(typeof number === "undefined"){
                         number = 8;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 8;
                     } else {
-                        anotherNumber = 8;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 8;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 8;
+                        }
                     }
                     break;
                 case '9':
                     if(typeof number === "undefined"){
                         number = 9;
+                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
+                        number = (number * 10) + 9;
                     } else {
-                        anotherNumber = 9;
+                        if (typeof anotherNumber === "undefined") {
+                            anotherNumber = 9;
+                        } else {
+                            anotherNumber = (anotherNumber * 10) + 9;
+                        }
                     }
                     break;
             } 
@@ -142,7 +202,12 @@ buttons.forEach(function(button){
                     break;
             }
         } else if (e.target.id == "=") {
-            document.querySelector('.screen').innerHTML = `${operate(operator, number, anotherNumber)}`;
+            displayValue = "";
+            let answer = operate(operator, number, anotherNumber);
+            document.querySelector('.screen').innerHTML = `${answer}`;
+            number = answer;
+            anotherNumber = undefined;
+            displayValue += answer;
         }
     })
 });

@@ -19,10 +19,10 @@ function Multiply(x, y) {
 function Divide(x, y) {
     let answer;
     answer = x / y;
-    if (Number.isInteger(answer) === true) {
-        return answer;
+    if (answer % 1 != 0) {
+        return answer.toFixed(4);
     } else {
-        return answer.toFixed(8);
+        return answer;
     }
 }
 

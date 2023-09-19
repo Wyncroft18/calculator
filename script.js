@@ -19,7 +19,11 @@ function Multiply(x, y) {
 function Divide(x, y) {
     let answer;
     answer = x / y;
-    return answer.toFixed(8);
+    if (Number.isInteger(answer) === true) {
+        return answer;
+    } else {
+        return answer.toFixed(8);
+    }
 }
 
 function operate(operator, number, anotherNumber) {

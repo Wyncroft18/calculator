@@ -39,179 +39,150 @@ function clear() {
     location.reload();
 }
 
-let number;
-let operator;
-let anotherNumber;
 let displayValue = "";
+let operatorArray = [];
+let opCounter = 0;
+let numberArray = [];
+let numberHolder;
+let answer;
 
 let buttons = document.querySelectorAll("button");
 buttons.forEach(function(button){
     button.addEventListener('click', function(e) {
         if (e.target.id != "clear" && e.target.id != "=") {
+            if (e.target.id >= 0 && e.target.id <= 9) {
+                switch (e.target.id) {
+                    case "0":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 0;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 0;
+                        }
+                        break;
+                    case "1":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 1;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 1;
+                        }
+                        break;
+                    case "2":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 2;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 2;
+                        }
+                        break;
+                    case "3":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 3;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 3;
+                        }
+                        break;
+                    case "4":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 4;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 4;
+                        }
+                        break;
+                    case "5":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 5;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 5;
+                        }
+                        break;
+                    case "6":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 6;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 6;
+                        }
+                        break;
+                    case "7":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 7;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 7;
+                        }
+                        break;
+                    case "8":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 8;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 8;
+                        }
+                        break;
+                    case "9":
+                        if (typeof numberHolder === "undefined") {
+                            numberHolder = 9;
+                        } else {
+                            numberHolder = (numberHolder * 10) + 9;
+                        }
+                        break;
+                }
+            } else if (e.target.id === "+" || e.target.id === "-" || e.target.id === "x" || e.target.id === "/") {
+                switch (e.target.id) {
+                    case "+":
+                        opCounter += 1;
+                        if (numberHolder != undefined) {
+                            numberArray.push(numberHolder);
+                        }
+                        numberHolder = undefined;
+                        operatorArray.push("+");
+                        break;
+                    case "-":
+                        opCounter += 1;
+                        if (numberHolder != undefined) {
+                            numberArray.push(numberHolder);
+                        }
+                        numberHolder = undefined;
+                        operatorArray.push("-");
+                        break;
+                    case "x":
+                        opCounter += 1;
+                        if (numberHolder != undefined) {
+                            numberArray.push(numberHolder);
+                        }
+                        numberHolder = undefined;
+                        operatorArray.push("x");
+                        break;
+                    case "/":
+                        opCounter += 1;
+                        if (numberHolder != undefined) {
+                            numberArray.push(numberHolder);
+                        }
+                        numberHolder = undefined;
+                        operatorArray.push("/");
+                        break;
+                }
+            }
             displayValue += `${e.target.id}`;
-        }
-        document.querySelector(".screen").innerHTML = displayValue;
-        if (e.target.id == "clear") {
+            document.querySelector(".screen").innerHTML = displayValue;
+        } else if (e.target.id == "clear") {
             clear();
-        } else if (e.target.id >= 0 && e.target.id <= 9) {
-            switch (e.target.id) {
-                case '0':
-                    if(typeof number === "undefined"){
-                        number = 0;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 0;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 0;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 0;
-                        }
-                    }
-                    break;
-                case '1':
-                    if(typeof number === "undefined"){
-                        number = 1;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 1;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 1;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 1;
-                        }
-                    }
-                    break;
-                case '2':
-                    if(typeof number === "undefined"){
-                        number = 2;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 2;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 2;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 2;
-                        }
-                    }
-                    break;
-                case '3':
-                    if(typeof number === "undefined"){
-                        number = 3;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 3;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 3;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 3;
-                        }
-                    }
-                    break;
-                case '4':
-                    if(typeof number === "undefined"){
-                        number = 4;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 4;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 4;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 4;
-                        }
-                    }
-                    break;
-                case '5':
-                    if(typeof number === "undefined"){
-                        number = 5;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 5;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 5;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 5;
-                        }
-                    }
-                    break;
-                case '6':
-                    if(typeof number === "undefined"){
-                        number = 6;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 6;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 6;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 6;
-                        }
-                    }
-                    break;
-                case '7':
-                    if(typeof number === "undefined"){
-                        number = 7;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 7;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 7;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 7;
-                        }
-                    }
-                    break;
-                case '8':
-                    if(typeof number === "undefined"){
-                        number = 8;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 8;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 8;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 8;
-                        }
-                    }
-                    break;
-                case '9':
-                    if(typeof number === "undefined"){
-                        number = 9;
-                    } else if (typeof number != "undefined" && typeof operator === "undefined") {
-                        number = (number * 10) + 9;
-                    } else {
-                        if (typeof anotherNumber === "undefined") {
-                            anotherNumber = 9;
-                        } else {
-                            anotherNumber = (anotherNumber * 10) + 9;
-                        }
-                    }
-                    break;
-            } 
-        } else if (e.target.id === "+" || e.target.id === "-" || e.target.id === "x" || e.target.id === "/") {
-            switch (e.target.id) {
-                case "+":
-                    operator = "+";
-                    break;
-                case "-":
-                    operator = "-";
-                    break;
-                case "x":
-                    operator = "x";
-                    break;
-                case "/":
-                    operator = "/";
-                    break;
-            }
         } else if (e.target.id == "=") {
-            if (e.target.id == "=" && (typeof number === "undefined" || typeof operator === "undefined" || typeof anotherNumber === "undefined")) {
-                clear();
-            } else {
-                displayValue = "";
-                let answer = operate(operator, number, anotherNumber);
-                document.querySelector('.screen').innerHTML = `${answer.toLocaleString('en-US')}`;
-                number = answer;
-                anotherNumber = undefined;
-                displayValue += answer;
+            displayValue = ""
+            if (numberHolder != undefined) {
+               numberArray.push(numberHolder);
             }
+            numberHolder = undefined;
+            if (numberArray.length < 2) {
+                    clear();
+            } else {
+                    for (let i = 0; i < opCounter; i++) {
+                        answer = operate(operatorArray[i], numberArray[i], numberArray[i + 1]);
+                        numberArray[i + 1] = answer;
+                    }
+                    document.querySelector(".screen").innerHTML = `${answer.toLocaleString('en-US')}`;
+                    operatorArray = [];
+                    opCounter = 0;
+                    numberArray = [];
+                    numberArray.push(answer); 
+                    displayValue += answer;
+                }
         }
     })
 });
